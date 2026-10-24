@@ -38,7 +38,7 @@ Things get binned not because they are useless, but because nobody knows the nex
 
 | Input steps | Ranked results |
 |---|---|
-| ![Item step](screenshots/02-item-step.png) | ![Results](screenshots/04-results.png) |
+| ![Item step](02-item-step.png) | ![Results](04-results.png) |
 
 ---
 
@@ -58,7 +58,7 @@ We did not start over — we adapted the same app. **Every primary action is now
 | Option detail | Step cards | **To do** ⇄ **Done** |
 | Shelf | Shelf card | **Reopen** · **Compare** · **Remove** · **New item** |
 
-![Drag and drop in action](screenshots/05-drag-drop.png)
+![Drag and drop in action](05-drag-drop.png)
 
 **Built to be usable, not just flashy**
 - 🖱️ Mouse, ✋ touch (drag by the ⠿ handle so scrolling still works) and ⌨️ keyboard (Enter = pick up, arrows = choose zone, Enter = drop, Esc = cancel)
@@ -66,7 +66,7 @@ We did not start over — we adapted the same app. **Every primary action is now
 - Incomplete cards **shake** the zone and say what is missing
 - Screen-reader announcements for pick-up and drop
 
-![Shelf and compare](screenshots/06-shelf.png)
+![Shelf and compare](06-shelf.png)
 
 ---
 
@@ -78,7 +78,7 @@ Every option is scored 0–1 on **8 factors**, then combined with weights from t
 
 Nothing is hidden — each option shows the points earned per factor and a one-line reason.
 
-![Why this option](screenshots/03-why-breakdown.png)
+![Why this option](03-why-breakdown.png)
 
 ---
 
