@@ -250,11 +250,17 @@ export function assess(item, problem, ctx, prefs) {
     };
   });
 
-  const ranked = [...options].sort((a, b) => b.score - a.score);
+  // Options the user ruled out (dragged to the "Rule out" zone) leave the ranking but stay recoverable.
+  const out = (prefs.excluded || []).filter((id) => OPTION_ORDER.includes(id));
+  const sorted = [...options].sort((a, b) => b.score - a.score);
+  const kept = sorted.filter((o) => !out.includes(o.id));
+  const ranked = kept.length ? kept : sorted;
+  const excluded = kept.length ? sorted.filter((o) => out.includes(o.id)) : [];
   ranked.forEach((o, i) => { o.rank = i + 1; });
-  const closeCall = ranked[1] && ranked[0].score - ranked[1].score < 5;
+  excluded.forEach((o) => { o.rank = null; });
+  const closeCall = !!ranked[1] && ranked[0].score - ranked[1].score < 5;
   const topDrivers = [...ranked[0].factors].sort((a, b) => b.points - a.points).slice(0, 2);
-  return { facts: F, weights, options, ranked, closeCall, topDrivers };
+  return { facts: F, weights, options, ranked, excluded, closeCall, topDrivers };
 }
 
 // ── Pros / cons derived from the factor breakdown ─────────────────────

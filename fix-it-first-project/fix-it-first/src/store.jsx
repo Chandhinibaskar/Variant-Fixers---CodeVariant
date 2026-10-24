@@ -8,7 +8,7 @@ const blank = () => ({
   item: { name: '', category: '', age: '', value: '' },
   problem: { symptoms: [], text: '' },
   ctx: { budget: '', skill: 2, time: 'evening', sentiment: 3, need: 'yes' },
-  prefs: { mode: 'balanced', importance: defaultImportance('balanced', 3), budgetCap: false },
+  prefs: { mode: 'balanced', importance: defaultImportance('balanced', 3), budgetCap: false, excluded: [] },
   currentId: null,
 });
 
@@ -39,6 +39,8 @@ function reducer(s, a) {
     }
     case 'importance': return { ...s, prefs: { ...s.prefs, importance: { ...s.prefs.importance, ...a.patch }, mode: 'custom', keepTouched: s.prefs.keepTouched || 'keep' in a.patch } };
     case 'mode': return { ...s, prefs: { ...s.prefs, mode: a.mode, keepTouched: false, importance: defaultImportance(a.mode, s.ctx.sentiment) } };
+    case 'exclude': return { ...s, prefs: { ...s.prefs, excluded: [...new Set([...(s.prefs.excluded || []), a.id])] } };
+    case 'restore': return { ...s, prefs: { ...s.prefs, excluded: (s.prefs.excluded || []).filter((x) => x !== a.id) } };
     case 'budgetCap': return { ...s, prefs: { ...s.prefs, budgetCap: a.on } };
     case 'beginAssessment': return s.currentId ? s : { ...s, currentId: 'it_' + Date.now().toString(36) };
     case 'load': return { ...s, ...a.data };
