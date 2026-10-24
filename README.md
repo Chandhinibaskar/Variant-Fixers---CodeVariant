@@ -4,7 +4,7 @@
 
 A guided triage for broken things. Instead of "fix it or bin it", Fix It First compares **all five options — Repair, Reuse, Repurpose, Replace, Recycle** — ranks them for *your* situation and explains **exactly why**.
 
-🔗 **Live demo:** fix-it-first.netlify.app
+🔗 **Live demo:** `fix-it-first.netlify.app`
 
 ![Landing page](screenshots/01-landing.png)
 
