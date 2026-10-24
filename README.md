@@ -6,7 +6,7 @@ A guided triage for broken things. Instead of "fix it or bin it", Fix It First c
 
 🔗 **Live demo:** `fix-it-first.netlify.app`
 
-![Landing page](screenshots/01-landing.png)
+![Landing page](01-landing.png)
 
 ---
 
